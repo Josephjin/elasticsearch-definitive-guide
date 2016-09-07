@@ -1,13 +1,17 @@
 === Next Steps
+=== 后续步骤
 
 By now you should have a taste of what you can do with Elasticsearch, and how
 easy it is to get started. Elasticsearch tries hard to work out of the box
 with minimal knowledge and configuration. The best way to learn Elasticsearch
 is by jumping in: just start indexing and searching!
+相信现在你已经对于能够通过 Elasticsearch 实现什么样的功能、以及操作的简易程度有了初步概念。Elasticsearch 努力通过最少的知识以及认证来达到开箱即用的效果。
+我相信，学习 Elasticsearch 最好的方式是参与：开始属于你的索引和搜索吧。
 
 However, the more you know about Elasticsearch, the more productive you can
 become.  The more you can tell Elasticsearch about the domain-specific
 elements of your application, the more you can fine-tune the output.
+然而，对于 Elasticsearch 你知道得越多，你就更有生产力。对于你的应用你能掌握更多特定域元素，你就能更好地微调输出值。
 
 The rest of this book will help you move from novice to expert. Each chapter explains the essentials, but also includes expert-level tips.  If
 you're just getting started, these tips are probably not immediately relevant
@@ -15,3 +19,4 @@ to you; Elasticsearch has sensible defaults and will generally do the right
 thing without any interference.  You can always revisit these chapters later,
 when you are looking to improve performance by shaving off any wasted
 milliseconds.
+本书的后续内容将帮助你从新手向专家转变，每个章节不仅阐述必要信息，而且包含专家级建议。如果你仍旧是新手水平，这些建议短时间内不一定适用；Elasticsearch 具备的默认值通常能保证在没有干扰下正确执行命令。当你寻求方式以提高程序质量来节约以毫秒计的浪费，到时回过头来重新阅读这些章节不迟。
