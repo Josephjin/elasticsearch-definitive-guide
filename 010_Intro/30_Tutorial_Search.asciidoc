@@ -4,15 +4,14 @@
 Now that we have some data stored in Elasticsearch,((("documents", "retrieving"))) we can get to work on the
 business requirements for this application.  The first requirement is the
 ability to retrieve individual employee data.
-目前我们已经在 Elasticsearch 中存储了一些数据，接下来我们将在此基础上拓展业务性需求。
-第一个要求——检索单个员工的数据。
-
+目前我们已经在 Elasticsearch 中存储了一些数据，接下来我们将在此//基础上实施部分业务要求的能力？//
+第一个要求即检索单个员工数据的能力。
 
 This is easy in Elasticsearch.  We simply execute((("HTTP requests", "retrieving a document with GET"))) an HTTP +GET+ request and
 specify the _address_ of the document--the index, type, and ID.((("id", "specifying in a request")))((("indices", "specifying index in a request")))((("types", "specifying type in a request")))  Using
 those three pieces of information, we can return the original JSON document:
 这在 Elasticsearch 中很简单。让我们通过执行简单的 HTTP+GET 指令并明确文档地址（索引名、类型以及雇员编码）
-使用这三条核心信息，检索操作将返回原始的 JSON 文档。
+使用这三条核心信息，检索操作将返回特定的 JSON 文档。
 
 [source,js]
 --------------------------------------------------
@@ -22,7 +21,7 @@ GET /megacorp/employee/1
 
 And the response contains some metadata about the document, and John Smith's
 original JSON document ((("_source field", sortas="source field")))as the `_source` field:
-同时，response 包含了关于文档的一些元数据以及约翰·史密斯本人的原始 JSON 文档。
+同时，response 包含了关于文档的一些元数据以及约翰·史密斯本人的特定 JSON 文档？？？
 
 [source,js]
 --------------------------------------------------
@@ -151,7 +150,7 @@ GET /megacorp/employee/_search?q=last_name:Smith
 
 We use the same `_search` endpoint in the path, and we add the query itself in
 the `q=` parameter. The results that come back show all Smiths:
-我们同样在路径中使用 search 作为终点符，同时我们通过查询参数 'q=' 中添加标准 last_name:Smith。
+我们在路径中同样使用 search 作为终点符，同时我们通过查询参数 'q=' 中添加标准 last_name:Smith。
 由此，检索结果返回所有与 Smith 相关的内容：
 
 [source,js]
@@ -199,7 +198,7 @@ Elasticsearch 提供一个丰富的、流畅的 query 语言：query DSL。它�
 
 The _domain-specific language_ (DSL) is((("DSL (Domain Specific Language)"))) specified using a JSON request body.
 We can represent the previous search for all Smiths like so:
-DSL，作为一门特定领域语言，指定使用一个 JSON 请求。
+DSL，作为一门特定领域语言，指定使用一个 JSON 请求主体。
 关于 Smith 作为姓氏条件进行搜索，我们可以如此展示：
 
 
@@ -221,7 +220,7 @@ number of things have changed.  For one, we are no longer using _query-string_
 parameters, but instead a request body.  This request body is built with JSON,
 and uses a `match` query (one of several types of queries, which we will learn
 about later).
-如先前查询方式，我们将获得相同结果。但是你可以看到，一些指令已经发生变化。举个例子，我们不再使用 query-string 参数，而由一个JSON请求作为替代方案。同时使用了 match 查询（属于查询类型之一，后续内容中我们将着重讲述）。
+如先前查询方式，我们将获得相同结果。但是你可以看到，一些指令已经发生变化。举个例子，我们不再使用 query-string 参数，而由一个请求主体作为替代方案。这个请求主体由 JSON 创建并使用了 match 查询（属于查询类型之一，后续内容中我们将着重讲述）。
 
 === More-Complicated Searches
 === 更复杂的搜索
@@ -257,15 +256,15 @@ GET /megacorp/employee/_search
 <1> This portion of the query is the((("match queries"))) same `match` _query_ that we used before.
 <2> This portion of the query is a `range` _filter_, which((("range filters"))) will find all ages
     older than 30&#x2014;`gt` stands for _greater than_.
-<1> 这部分 'query' 与我们之前 'match' 指令中的 query 是一样的。
-<2> 这部分 'query' 是一个 'range' filter，它能帮助我们找到年龄大于 30 的对象。
+<1> 这部分查询
+<2> 
 
 
 Don't worry about the syntax too much for now; we will cover it in great
 detail later.  Just recognize that we've added a _filter_ that performs a
 range search, and reused the same `match` query as before.  Now our results show
 only one employee who happens to be 32 and is named Jane Smith:
-当前我们不需要担心语法排列问题，之后我们将在细节部分做优化。我们只需要明确通过 filter 指令增加范围搜索功能，同时继续复用 match 查询指令。现在，我们的结果展示了恰巧只有一位员工符合条件，她叫 Jane Smith，今年 32 岁。
+当前我们不需要担心语法排列问题，之后我们将在细节部分做优化。我们只需要明确通过 filter 指令增加范围搜索功能，同时继续复用 match 查询指令。现在，我们的结果展示了
 
 [source,js]
 --------------------------------------------------
@@ -296,7 +295,7 @@ only one employee who happens to be 32 and is named Jane Smith:
 The searches so far have been simple:  single names, filtered by age. Let's
 try a more advanced, full-text search--a ((("full text search")))task that traditional databases
 would really struggle with.
-截止目前，搜索功能相对简单：单个姓名、年龄作筛选值。
+截止目前，搜索功能相对简单：名字作？？？、年龄作筛选值。
 让我们尝试更复杂的全文本搜索，一项传统数据库难以搞定的任务。
 
 We are going to search for all employees who enjoy rock climbing:
@@ -371,7 +370,7 @@ This is a good example of how Elasticsearch can search _within_ full-text
 fields and return the most relevant results first. This ((("relevance", "importance to Elasticsearch")))concept of _relevance_
 is important to Elasticsearch, and is a concept that is completely foreign to
 traditional relational databases, in which a record either matches or it doesn't.
-这个案例很好地说明了 Elasticsearch 能够在全文本范围内进行搜索并优先返回相关性最强的结果。对于 Elasticsearch 来说，相关性（relevance）的概念非常重要，而这对于传统的关系数据库来说却是崭新的。
+这个案例很好地说明了 Elasticsearch 能够在全文本范围内进行搜索并优先返回相关性最强的结果。对于 Elasticsearch 来说，relevance 的概念非常重要，对于传统的相关数据库来说也是崭新的？？？
 
 === Phrase Search
 === 词组搜索
@@ -381,7 +380,7 @@ want to match exact sequences of words or _phrases_.((("phrase matching"))) For 
 _and_ ``climbing'' _and_ that display the words next to each other in the phrase
 ``rock climbing.''
 //
-在一个 field 中找到特定的文本信息没有问题，但是有时候你想要搜索结果能够匹配特定序列的字眼或词组。举例说明，我们可以执行一段 query 指令来找出符合要求的员工信息：包含 "rock" 与 "climbing" 字眼且两个字眼紧挨着彼此。
+找到一个范围内的特定字眼没有问题，但是有时候你想要搜索结果能够匹配特定序列的字眼或词组。举例说明，我们可以
 
 To do this, we use a slight variation of the `match` query called the
 `match_phrase` query:
@@ -434,7 +433,7 @@ This, to no surprise, returns only John Smith's document:
 Many applications like to _highlight_ snippets((("searches", "highlighting search results")))((("highlighting searches"))) of text from each search result
 so the user can see _why_ the document matched the query.  Retrieving
 highlighted fragments is easy in Elasticsearch.
-许多应用喜欢在每个搜索结果中高亮片段信息，由此用户可以更清晰地知道为什么搜索结果符合查询条件。实际上，在 Elasticsearch 中检索高亮片段不难。
+许多应用喜欢在每个搜索结果中高亮片段信息，由此用户可以更清晰知道为什么文档符合查询条件。实际上，在 Elasticsearch 中检索高亮片段不难。
 
 Let's rerun our previous query, but add a new `highlight` parameter:
 我们只要重新运行之前的查询指令，但是需要增加一个新的 highlight 参数：
