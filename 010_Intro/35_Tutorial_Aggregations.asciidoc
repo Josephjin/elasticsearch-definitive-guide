@@ -1,5 +1,5 @@
 === Analytics
-=== 分析
+=== 分析能力
 
 Finally, we come to our last business requirement: allow managers to run
 analytics over the employee directory.((("analytics")))  Elasticsearch has functionality called
@@ -23,7 +23,7 @@ GET /megacorp/employee/_search
 // SENSE: 010_Intro/35_Aggregations.json
 
 Ignore the syntax for now and just look at the results:
-忽略掉这些语法，让我们看看结果：
+暂时忽略掉以上语法，让我们先看看结果：
 
 [source,js]
 --------------------------------------------------
@@ -165,5 +165,5 @@ that interest.
 Even if you don't understand the syntax yet, you can easily see how complex aggregations and groupings can be accomplished using this feature.
 The sky is the limit as to what kind of data you can extract!
 即使你现在还不明白这些语法段，没关系，至少你可以快速了解到集合以及集合群通过 Elasticsearch 特性实现过程有多复杂。
-//你能提取的数据种类，就如天空一样，没有边际。
+心有多大，数据就有多丰富。
 
