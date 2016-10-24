@@ -1,5 +1,5 @@
 === Tutorial Conclusion
-=== 教程结语
+=== 教程结语 
 
 Hopefully, this little tutorial was a good demonstration about what is possible
 in Elasticsearch.  It is really just scratching the surface, and many features--such as suggestions, geolocation, percolation, fuzzy and partial matching--were omitted to keep the tutorial short. But it did highlight just how
