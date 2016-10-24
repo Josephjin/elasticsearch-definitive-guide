@@ -1,13 +1,15 @@
 === Analytics
+<<<<<<< HEAD
 === 分析能力
+=======
+>>>>>>> parent of 18b8647... chapter/chapter10_25-50
 
 Finally, we come to our last business requirement: allow managers to run
 analytics over the employee directory.((("analytics")))  Elasticsearch has functionality called
-_aggregations_, which ((("aggregations")))allow you to generate sophisticated analytics over your data. It is similar to `GROUP BY` in SQL, but much more powerful.
-最终，我们要讨论最后一个业务要求：允许管理者针对员工目录运行分析进程。Elasticsearch 有一项功能称之为 aggregations，通过 aggregations 系统进程可以基于你的数据产生精细的分析。与 SQL 中的 'GROUP BY' 功能类似，但是 aggregations 更加强大。
+_aggregations_, which ((("aggregations")))allow you to generate sophisticated analytics over your
+data. It is similar to `GROUP BY` in SQL, but much more powerful.
 
 For example, let's find the most popular interests enjoyed by our employees:
-举个例子，让我们挖掘出员工之间最受欢迎的兴趣爱好：
 
 [source,js]
 --------------------------------------------------
@@ -23,7 +25,10 @@ GET /megacorp/employee/_search
 // SENSE: 010_Intro/35_Aggregations.json
 
 Ignore the syntax for now and just look at the results:
+<<<<<<< HEAD
 暂时忽略掉以上语法，让我们先看看结果：
+=======
+>>>>>>> parent of 18b8647... chapter/chapter10_25-50
 
 [source,js]
 --------------------------------------------------
@@ -56,7 +61,6 @@ in sports.  These aggregations are not precalculated; they are generated on
 the fly from the documents that match the current query. If we want to know
 the popular interests of people called Smith, we can just add the
 appropriate query into the mix:
-我们可以看到，两位员工对音乐感兴趣，一位对林业感兴趣，一位对运动感兴趣。最终结果并不是预先统计的，而是文档信息与查询条件实时匹配后所收集的结果。如果我们想知道名为 Smith 的员工中最受欢迎的兴趣爱好，可以直接在混合参数中添加适当的查询条件：
 
 [source,js]
 --------------------------------------------------
@@ -79,7 +83,6 @@ GET /megacorp/employee/_search
 // SENSE: 010_Intro/35_Aggregations.json
 
 The `all_interests` aggregation has changed to include only documents matching our query:
-是的，'all_interests' 集合条件做了调整以期只包含匹配我们查询条件的文档：
 
 [source,js]
 --------------------------------------------------
@@ -100,8 +103,6 @@ The `all_interests` aggregation has changed to include only documents matching o
 
 Aggregations allow hierarchical rollups too.((("aggregations", "hierarchical rollups in")))  For example, let's find the
 average age of employees who share a particular interest:
-//??????
-举个例子，我们来查询拥有特定兴趣爱好的员工群体平均年龄：
 
 [source,js]
 --------------------------------------------------
@@ -123,7 +124,6 @@ GET /megacorp/employee/_search
 
 The aggregations that we get back are a bit more complicated, but still fairly
 easy to understand:
-下面这段返回的集合值更复杂了些，不过理解起来还是相当简单的：
 
 [source,js]
 --------------------------------------------------
@@ -159,11 +159,12 @@ The output is basically an enriched version of the first aggregation we ran.
 We still have a list of interests and their counts, but now each interest has
 an additional `avg_age`, which shows the average age for all employees having
 that interest.
-这段输出值基本上算是我们第一次获得的数值集合的升级版。
-在这个版本中，我们依旧获得了一串兴趣爱好清单以及相应的统计值，只不过每个兴趣都有了附加的 'avg_age' 值，代表这个兴趣爱好所覆盖员工的平均年龄。
 
 Even if you don't understand the syntax yet, you can easily see how complex aggregations and groupings can be accomplished using this feature.
 The sky is the limit as to what kind of data you can extract!
+<<<<<<< HEAD
 即使你现在还不明白这些语法段，没关系，至少你可以快速了解到集合以及集合群通过 Elasticsearch 特性实现过程有多复杂。
 心有多大，数据就有多丰富。
 
+=======
+>>>>>>> parent of 18b8647... chapter/chapter10_25-50

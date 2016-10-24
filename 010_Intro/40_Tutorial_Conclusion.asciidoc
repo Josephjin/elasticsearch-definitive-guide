@@ -1,15 +1,16 @@
 === Tutorial Conclusion
-=== 教程结语
 
 Hopefully, this little tutorial was a good demonstration about what is possible
 in Elasticsearch.  It is really just scratching the surface, and many features--such as suggestions, geolocation, percolation, fuzzy and partial matching--were omitted to keep the tutorial short. But it did highlight just how
 easy it is to start building advanced search functionality.  No configuration
 was needed--just add data and start searching!
+<<<<<<< HEAD
 令人感到开心的是，这篇小教程对于解释 Elasticsearch 有哪些可能性，是一个不错的示例。为了保持教程足够精简，我们虽浅尝辄止，省略了诸如建议、地理定位、数据过滤、模糊及局部匹配等特性；但是它的的确确揭示了创建优秀的搜索功能并不是件难事。
 不需要任何认证流程，只需要添加数据源并开始搜索吧。
+=======
+>>>>>>> parent of 18b8647... chapter/chapter10_25-50
 
 It's likely that the syntax left you confused in places, and you may have questions
 about how to tweak and tune various aspects. That's fine! The rest of the
 book dives into each of these issues in detail, giving you a solid
 understanding of how Elasticsearch works.
-很可能你对各处的语法段有疑惑，同时关于如何调整语法段来获得多维度数据也有困惑，没关系！本书后续内容将细分成各个章节，以期帮助读者扎实了解 Elasticsearch 的工作原理。
